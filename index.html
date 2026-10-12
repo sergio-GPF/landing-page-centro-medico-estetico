@@ -1,13 +1,1009 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>AuraSkin | Cremas Protectoras & Tratamientos Botox</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Playfair Display & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#FAF5EF',
+                            100: '#F4ECE1',
+                            200: '#E8D7C3',
+                            300: '#D7BC9F',
+                            400: '#C29C77',
+                            500: '#AC7F54',
+                            600: '#8E623A',
+                            700: '#6E4829',
+                            800: '#4D311A',
+                            900: '#2D1A0D',
+                        },
+                        roseGold: '#D4AF37',
+                        emeraldDark: '#0B2B26',
+                        cream: '#FAF7F2',
+                        nude: '#EFE8DE'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+        .glass-dark {
+            background: rgba(11, 43, 38, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #B8860B 0%, #E6CA65 50%, #996515 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gold-gradient-bg {
+            background: linear-gradient(135deg, #C29C77 0%, #D7BC9F 50%, #AC7F54 100%);
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FAF7F2;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #D7BC9F;
+            border-radius: 4px;
+        }
+    </style>
 </head>
-<body>
-    <h1>Bienvenido a Git y GitHub</h1> 
-    <p>Este es un simple ejemplo de un archivo HTML.</p>
-    <p>Este es un simple ejemplo de un archivo HTML.</p>
+<body class="bg-cream text-stone-800 font-sans antialiased selection:bg-brand-200 selection:text-brand-900 overflow-x-hidden">
+
+    <!-- Top Announcement Bar -->
+    <div class="bg-emeraldDark text-cream text-xs text-center py-2 px-4 flex justify-between items-center px-6 sm:px-12">
+        <div class="hidden sm:block">✨ Envío GRATIS en compras mayores a $65.000</div>
+        <div class="mx-auto sm:mx-0 font-medium">🔬 Garantía Dermatológica de 30 Días &nbsp;|&nbsp; 100% Cuidado Clínico</div>
+        <div class="hidden md:flex items-center space-x-3">
+            <a href="#" class="hover:text-brand-300 transition-colors"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="hover:text-brand-300 transition-colors"><i class="fab fa-tiktok"></i></a>
+        </div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="sticky top-0 z-40 glass-panel border-b border-stone-200 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Brand Logo -->
+                <a href="#" class="flex items-center space-x-2">
+                    <span class="font-serif text-3xl font-bold tracking-tight text-emeraldDark">AURA<span class="text-brand-500 font-normal">SKIN</span></span>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 text-sm font-medium uppercase tracking-wider text-stone-700">
+                    <a href="#productos" class="hover:text-brand-600 transition-colors py-1">Productos</a>
+                    <a href="#beneficios" class="hover:text-brand-600 transition-colors py-1">Ciencia & Botox</a>
+                    <a href="#antes-despues" class="hover:text-brand-600 transition-colors py-1">Resultados</a>
+                    <a href="#quiz" class="hover:text-brand-600 transition-colors py-1">Diagnóstico Skin</a>
+                    <a href="#testimonios" class="hover:text-brand-600 transition-colors py-1">Reseñas</a>
+                </div>
+
+                <!-- Action Icons & Cart Button -->
+                <div class="flex items-center space-x-5">
+                    <button onclick="openQuizModal()" class="hidden sm:inline-flex items-center text-xs uppercase tracking-widest font-semibold px-4 py-2 rounded-full border border-brand-500 text-brand-700 hover:bg-brand-500 hover:text-white transition-all">
+                        <i class="fa-solid fa-wand-magic-sparkles mr-2"></i> Mi Rutina
+                    </button>
+                    
+                    <button onclick="toggleCart()" class="relative p-2 text-emeraldDark hover:text-brand-600 transition-colors" aria-label="Carrito de compras">
+                        <i class="fa-solid fa-bag-shopping text-xl"></i>
+                        <span id="cart-badge" class="absolute -top-1 -right-1 bg-brand-500 text-white text-[10px] font-bold rounded-full h-5 w-5 flex items-center justify-center">2</span>
+                    </button>
+
+                    <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="md:hidden p-2 text-stone-700 hover:text-brand-600 focus:outline-none" aria-label="Abrir Menú">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-cream border-b border-stone-200 px-4 pt-2 pb-6 space-y-3">
+            <a href="#productos" onclick="toggleMobileMenu()" class="block py-2 text-sm font-medium uppercase tracking-wider text-stone-700 hover:text-brand-600">Productos</a>
+            <a href="#beneficios" onclick="toggleMobileMenu()" class="block py-2 text-sm font-medium uppercase tracking-wider text-stone-700 hover:text-brand-600">Ciencia & Botox</a>
+            <a href="#antes-despues" onclick="toggleMobileMenu()" class="block py-2 text-sm font-medium uppercase tracking-wider text-stone-700 hover:text-brand-600">Resultados</a>
+            <a href="#quiz" onclick="toggleMobileMenu()" class="block py-2 text-sm font-medium uppercase tracking-wider text-stone-700 hover:text-brand-600">Diagnóstico Skin</a>
+            <a href="#testimonios" onclick="toggleMobileMenu()" class="block py-2 text-sm font-medium uppercase tracking-wider text-stone-700 hover:text-brand-600">Reseñas</a>
+            <button onclick="toggleMobileMenu(); openQuizModal();" class="w-full mt-2 text-center text-xs uppercase tracking-widest font-semibold px-4 py-3 rounded-full bg-brand-500 text-white">
+                <i class="fa-solid fa-wand-magic-sparkles mr-2"></i> Encuentra Tu Rutina
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-[90vh] flex items-center py-12 lg:py-20 overflow-hidden">
+        <!-- Background Gradient Blur Elements -->
+        <div class="absolute top-10 left-10 w-96 h-96 bg-brand-200/40 rounded-full filter blur-3xl -z-10 pointer-events-none"></div>
+        <div class="absolute bottom-10 right-10 w-96 h-96 bg-stone-300/30 rounded-full filter blur-3xl -z-10 pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Text Content -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full bg-brand-100/80 border border-brand-300 text-brand-800 text-xs font-semibold tracking-wider uppercase">
+                        <i class="fa-solid fa-shield-halved text-brand-500"></i>
+                        <span>Protección UV + Tecnología Péptidos Boto-Like</span>
+                    </div>
+
+                    <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-normal leading-tight text-emeraldDark">
+                        El secreto de una piel <span class="italic font-normal gold-gradient-text">eternamente joven,</span> protegida y firme.
+                    </h1>
+
+                    <p class="text-stone-600 text-lg sm:text-xl max-w-2xl mx-auto lg:mx-0 font-light leading-relaxed">
+                        Fusión clínica de alta protección solar FPS 50+ y tratamiento regenerativo con péptidos tensores de efecto Botox. Previene el fotoenvejecimiento mientras alisa líneas de expresión.
+                    </p>
+
+                    <div class="pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                        <a href="#productos" class="w-full sm:w-auto text-center px-8 py-4 rounded-full bg-emeraldDark text-white font-medium text-sm tracking-widest uppercase hover:bg-emerald-950 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                            Explorar Productos <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                        </a>
+                        <button onclick="openBookingModal()" class="w-full sm:w-auto text-center px-8 py-4 rounded-full border border-emeraldDark text-emeraldDark font-medium text-sm tracking-widest uppercase hover:bg-emeraldDark hover:text-white transition-all">
+                            Agendar Tratamiento Botox
+                        </button>
+                    </div>
+
+                    <!-- Trust Seals -->
+                    <div class="pt-8 border-t border-stone-200/60 grid grid-cols-3 gap-4 max-w-lg mx-auto lg:mx-0 text-center lg:text-left">
+                        <div>
+                            <div class="font-serif font-bold text-2xl text-emeraldDark">FPS 50+</div>
+                            <div class="text-xs text-stone-500 mt-1">Amplio Espectro UVA/UVB</div>
+                        </div>
+                        <div>
+                            <div class="font-serif font-bold text-2xl text-emeraldDark">-45%</div>
+                            <div class="text-xs text-stone-500 mt-1">Arrugas de Expresión</div>
+                        </div>
+                        <div>
+                            <div class="font-serif font-bold text-2xl text-emeraldDark">100%</div>
+                            <div class="text-xs text-stone-500 mt-1">Dermatológicamente Testado</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Visual Showcase with Floating Badges -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative mx-auto max-w-md lg:max-w-none">
+                        <!-- Main Product Frame Image -->
+                        <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
+                            <img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=800&q=80" alt="Suero Botox y Crema Protectora AuraSkin" class="w-full h-[500px] object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-emeraldDark/40 via-transparent to-transparent"></div>
+                        </div>
+
+                        <!-- Floating Glassmorphism Badge 1 (Protección Solar) -->
+                        <div class="absolute -top-4 -left-4 sm:-left-8 glass-panel p-4 rounded-2xl shadow-xl max-w-[200px] hidden sm:flex items-center space-x-3 transform -rotate-3 hover:rotate-0 transition-transform">
+                            <div class="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center text-amber-600 text-xl font-bold">
+                                <i class="fa-solid fa-sun"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs font-bold text-stone-800">Protección UV 50+</p>
+                                <p class="text-[10px] text-stone-500">Óxido de Zinc & Niacinamida</p>
+                            </div>
+                        </div>
+
+                        <!-- Floating Glassmorphism Badge 2 (Botox Peptide) -->
+                        <div class="absolute -bottom-6 -right-4 sm:-right-8 glass-panel p-4 rounded-2xl shadow-xl max-w-[220px] flex items-center space-x-3 transform rotate-2 hover:rotate-0 transition-transform">
+                            <div class="w-10 h-10 rounded-full bg-brand-100 flex items-center justify-center text-brand-600 text-xl">
+                                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs font-bold text-stone-800">Efecto Botox Inmediato</p>
+                                <p class="text-[10px] text-stone-500">Complejo Argireline 15%</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Before & After Section -->
+    <section id="antes-despues" class="py-20 bg-nude/40 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-xs font-semibold tracking-widest text-brand-600 uppercase">Resultados Visibles Clínicos</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-normal text-emeraldDark mt-2">Transformación de la Piel en 28 Días</h2>
+                <p class="text-stone-600 mt-3">Desliza para ver la reducción de líneas de expresión y la mejora visible en la textura de la piel utilizando la combinación diaria de Crema Protectora y Suero Boto-Peptides.</p>
+            </div>
+
+            <!-- Interactive Slider Container -->
+            <div class="max-w-3xl mx-auto bg-white p-4 sm:p-6 rounded-3xl shadow-xl border border-stone-200">
+                <div class="relative w-full h-[380px] sm:h-[450px] rounded-2xl overflow-hidden select-none cursor-ew-resize" id="ba-container">
+                    
+                    <!-- After Image (Bottom Layer) -->
+                    <img src="https://images.unsplash.com/photo-1512290900673-7002030034a7?auto=format&fit=crop&w=1000&q=80" alt="Piel Después" class="absolute inset-0 w-full h-full object-cover">
+                    <span class="absolute top-4 right-4 bg-emeraldDark/80 text-white text-xs font-bold px-3 py-1.5 rounded-full backdrop-blur-md uppercase tracking-wider">Después (Día 28)</span>
+
+                    <!-- Before Image (Top Layer, Clipped) -->
+                    <div class="absolute top-0 left-0 bottom-0 w-1/2 overflow-hidden" id="ba-before-wrapper">
+                        <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=1000&q=80" alt="Piel Antes" class="absolute top-0 left-0 h-full max-w-none object-cover" id="ba-before-img">
+                        <span class="absolute top-4 left-4 bg-stone-900/80 text-white text-xs font-bold px-3 py-1.5 rounded-full backdrop-blur-md uppercase tracking-wider">Antes</span>
+                    </div>
+
+                    <!-- Slider Handle Line -->
+                    <div class="absolute top-0 bottom-0 left-1/2 w-1 bg-white cursor-ew-resize shadow-2xl" id="ba-slider-line">
+                        <div class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-white shadow-lg flex items-center justify-center text-emeraldDark font-bold text-sm">
+                            <i class="fa-solid fa-left-right"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-4 text-center text-xs text-stone-600 pt-4 border-t border-stone-100">
+                    <div class="p-2"><i class="fa-solid fa-check text-brand-500 mr-1"></i> Reducción de patas de gallo</div>
+                    <div class="p-2"><i class="fa-solid fa-check text-brand-500 mr-1"></i> Barrera cutánea reforzada</div>
+                    <div class="p-2"><i class="fa-solid fa-check text-brand-500 mr-1"></i> Tono de piel uniforme sin manchas</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sales & Product Catalog Section -->
+    <section id="productos" class="py-20 bg-cream">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-10">
+                <span class="text-xs font-semibold tracking-widest text-brand-600 uppercase">Colección Exclusiva AuraSkin</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-normal text-emeraldDark mt-2">Protección Avanzada & Rejuvenecimiento</h2>
+                <p class="text-stone-600 mt-2">Formulaciones clínicas para proteger contra agresores ambientales y atenuar los signos de la edad.</p>
+            </div>
+
+            <!-- Tab Navigation Buttons -->
+            <div class="flex justify-center mb-12">
+                <div class="inline-flex p-1.5 rounded-full bg-stone-200/70 space-x-2">
+                    <button onclick="switchTab('all')" id="tab-all" class="tab-btn active-tab px-6 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider transition-all bg-emeraldDark text-white shadow-sm">
+                        Todos
+                    </button>
+                    <button onclick="switchTab('cremas')" id="tab-cremas" class="tab-btn px-6 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider text-stone-600 hover:text-emeraldDark transition-all">
+                        Cremas Protectoras
+                    </button>
+                    <button onclick="switchTab('botox')" id="tab-botox" class="tab-btn px-6 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider text-stone-600 hover:text-emeraldDark transition-all">
+                        Tratamientos Botox
+                    </button>
+                </div>
+            </div>
+
+            <!-- Products Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <!-- Product 1: Crema Solar Proteccion -->
+                <div class="product-card group bg-white rounded-3xl p-4 shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-200/80 flex flex-col justify-between" data-category="cremas">
+                    <div>
+                        <div class="relative rounded-2xl overflow-hidden bg-stone-100 mb-4 h-64">
+                            <span class="absolute top-3 left-3 bg-brand-500 text-white text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider z-10">Más Vendido</span>
+                            <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=600&q=80" alt="Crema Solar UV Defense FPS 50+" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <button onclick="addToCart('Crema Solar UV Defense FPS 50+', 38.000, 'https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=200&q=80')" class="absolute bottom-3 right-3 w-11 h-11 rounded-full bg-white/90 text-emeraldDark hover:bg-emeraldDark hover:text-white flex items-center justify-center shadow-lg transition-all" title="Añadir al carrito">
+                                <i class="fa-solid fa-plus text-sm"></i>
+                            </button>
+                        </div>
+                        <div class="flex items-center text-amber-500 text-xs mb-1">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <span class="text-stone-400 ml-1.5 text-[11px]">(142)</span>
+                        </div>
+                        <h3 class="font-serif text-lg font-medium text-emeraldDark">Crema Solar UV Defense FPS 50+</h3>
+                        <p class="text-xs text-stone-500 mt-1 line-clamp-2">Protector solar mineral ultraligero con Óxido de Zinc y Niacinamida. Acabado invisible sin brillo.</p>
+                        
+                        <div class="mt-3 flex flex-wrap gap-1">
+                            <span class="text-[10px] bg-brand-50 text-brand-700 px-2 py-0.5 rounded-md">Óxido de Zinc</span>
+                            <span class="text-[10px] bg-brand-50 text-brand-700 px-2 py-0.5 rounded-md">Niacinamida</span>
+                        </div>
+                    </div>
+
+                    <div class="mt-4 pt-3 border-t border-stone-100 flex items-center justify-between">
+                        <div>
+                            <span class="text-xs text-stone-400 line-through">$45.000</span>
+                            <div class="text-lg font-bold text-emeraldDark">$38.000</div>
+                        </div>
+                        <button onclick="addToCart('Crema Solar UV Defense FPS 50+', 38.000, 'https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=200&q=80')" class="px-4 py-2 rounded-full bg-emeraldDark text-white text-xs font-semibold hover:bg-emerald-900 transition-colors">
+                            Añadir
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 2: Sérum Boto-Peptides -->
+                <div class="product-card group bg-white rounded-3xl p-4 shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-200/80 flex flex-col justify-between" data-category="botox">
+                    <div>
+                        <div class="relative rounded-2xl overflow-hidden bg-stone-100 mb-4 h-64">
+                            <span class="absolute top-3 left-3 bg-emeraldDark text-white text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider z-10">Efecto Botox</span>
+                            <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=600&q=80" alt="Sérum Boto-Peptides Concentrado" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <button onclick="addToCart('Sérum Boto-Peptides Concentrado', 62.000, 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=200&q=80')" class="absolute bottom-3 right-3 w-11 h-11 rounded-full bg-white/90 text-emeraldDark hover:bg-emeraldDark hover:text-white flex items-center justify-center shadow-lg transition-all" title="Añadir al carrito">
+                                <i class="fa-solid fa-plus text-sm"></i>
+                            </button>
+                        </div>
+                        <div class="flex items-center text-amber-500 text-xs mb-1">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <span class="text-stone-400 ml-1.5 text-[11px]">(98)</span>
+                        </div>
+                        <h3 class="font-serif text-lg font-medium text-emeraldDark">Sérum Boto-Peptides Concentrado</h3>
+                        <p class="text-xs text-stone-500 mt-1 line-clamp-2">Sérum tensor intensivo con 15% de Argireline. Relaja arrugas de expresión en frente y contorno de ojos.</p>
+                        
+                        <div class="mt-3 flex flex-wrap gap-1">
+                            <span class="text-[10px] bg-brand-50 text-brand-700 px-2 py-0.5 rounded-md">Péptidos 15%</span>
+                            <span class="text-[10px] bg-brand-50 text-brand-700 px-2 py-0.5 rounded-md">Ác. Hialurónico</span>
+                        </div>
+                    </div>
+
+                    <div class="mt-4 pt-3 border-t border-stone-100 flex items-center justify-between">
+                        <div>
+                            <span class="text-xs text-stone-400 line-through">$75.000</span>
+                            <div class="text-lg font-bold text-emeraldDark">$62.000</div>
+                        </div>
+                        <button onclick="addToCart('Sérum Boto-Peptides Concentrado', 62.000, 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=200&q=80')" class="px-4 py-2 rounded-full bg-emeraldDark text-white text-xs font-semibold hover:bg-emerald-900 transition-colors">
+                            Añadir
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 3: Crema Barrera Reparadora -->
+                <div class="product-card group bg-white rounded-3xl p-4 shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-200/80 flex flex-col justify-between" data-category="cremas">
+                    <div>
+                        <div class="relative rounded-2xl overflow-hidden bg-stone-100 mb-4 h-64">
+                            <img src="https://images.unsplash.com/photo-1608248597261-83325705438f?auto=format&fit=crop&w=600&q=80" alt="Crema Barrera Cica-Reparadora" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <button onclick="addToCart('Crema Barrera Cica-Reparadora', 42.000, 'https://images.unsplash.com/photo-1608248597261-83325705438f?auto=format&fit=crop&w=200&q=80')" class="absolute bottom-3 right-3 w-11 h-11 rounded-full bg-white/90 text-emeraldDark hover:bg-emeraldDark hover:text-white flex items-center justify-center shadow-lg transition-all" title="Añadir al carrito">
+                                <i class="fa-solid fa-plus text-sm"></i>
+                            </button>
+                        </div>
+                        <div class="flex items-center text-amber-500 text-xs mb-1">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star-half-stroke"></i>
+                            <span class="text-stone-400 ml-1.5 text-[11px]">(76)</span>
+                        </div>
+                        <h3 class="font-serif text-lg font-medium text-emeraldDark">Crema Barrera Cica-Reparadora</h3>
+                        <p class="text-xs text-stone-500 mt-1 line-clamp-2">Crema nutritiva intensiva con ceramidas y centella asiática. Restaura el manto lipídico gastado.</p>
+                        
+                        <div class="mt-3 flex flex-wrap gap-1">
+                            <span class="text-[10px] bg-brand-50 text-brand-700 px-2 py-0.5 rounded-md">Ceramidas NP</span>
+                            <span class="text-[10px] bg-brand-50 text-brand-700 px-2 py-0.5 rounded-md">Centella</span>
+                        </div>
+                    </div>
+
+                    <div class="mt-4 pt-3 border-t border-stone-100 flex items-center justify-between">
+                        <div>
+                            <div class="text-lg font-bold text-emeraldDark">$42.000</div>
+                        </div>
+                        <button onclick="addToCart('Crema Barrera Cica-Reparadora', 42.000, 'https://images.unsplash.com/photo-1608248597261-83325705438f?auto=format&fit=crop&w=200&q=80')" class="px-4 py-2 rounded-full bg-emeraldDark text-white text-xs font-semibold hover:bg-emerald-900 transition-colors">
+                            Añadir
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 4: Crema Reafirmante Botox Night -->
+                <div class="product-card group bg-white rounded-3xl p-4 shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-200/80 flex flex-col justify-between" data-category="botox">
+                    <div>
+                        <div class="relative rounded-2xl overflow-hidden bg-stone-100 mb-4 h-64">
+                            <span class="absolute top-3 left-3 bg-amber-600 text-white text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider z-10">Noche</span>
+                            <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=600&q=80" alt="Crema Reafirmante Noche Botox Effect" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <button onclick="addToCart('Crema Reafirmante Noche Botox Effect', 58.000, 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=200&q=80')" class="absolute bottom-3 right-3 w-11 h-11 rounded-full bg-white/90 text-emeraldDark hover:bg-emeraldDark hover:text-white flex items-center justify-center shadow-lg transition-all" title="Añadir al carrito">
+                                <i class="fa-solid fa-plus text-sm"></i>
+                            </button>
+                        </div>
+                        <div class="flex items-center text-amber-500 text-xs mb-1">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <span class="text-stone-400 ml-1.5 text-[11px]">(110)</span>
+                        </div>
+                        <h3 class="font-serif text-lg font-medium text-emeraldDark">Crema Reafirmante Noche Botox Effect</h3>
+                        <p class="text-xs text-stone-500 mt-1 line-clamp-2">Tratamiento nocturno ultrahidratante con Retinol Encapsulado y Péptidos. Remodela el óvalo facial.</p>
+                        
+                        <div class="mt-3 flex flex-wrap gap-1">
+                            <span class="text-[10px] bg-brand-50 text-brand-700 px-2 py-0.5 rounded-md">Retinol 0.3%</span>
+                            <span class="text-[10px] bg-brand-50 text-brand-700 px-2 py-0.5 rounded-md">Péptidos</span>
+                        </div>
+                    </div>
+
+                    <div class="mt-4 pt-3 border-t border-stone-100 flex items-center justify-between">
+                        <div>
+                            <span class="text-xs text-stone-400 line-through">$68.000</span>
+                            <div class="text-lg font-bold text-emeraldDark">$58.000</div>
+                        </div>
+                        <button onclick="addToCart('Crema Reafirmante Noche Botox Effect', 58.000, 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=200&q=80')" class="px-4 py-2 rounded-full bg-emeraldDark text-white text-xs font-semibold hover:bg-emerald-900 transition-colors">
+                            Añadir
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits & Science Section -->
+    <section id="beneficios" class="py-20 bg-emeraldDark text-cream relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                
+                <div>
+                    <span class="text-xs font-semibold tracking-widest text-brand-300 uppercase">Sinergia Avanzada</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-normal text-white mt-2 leading-tight">
+                        ¿Por qué combinar Protección Solar y Tratamiento Boto-Peptides?
+                    </h2>
+                    <p class="text-stone-300 mt-4 leading-relaxed font-light">
+                        El 80% del envejecimiento prematuro es causado por la radiación solar y la luz azul. Los tratamientos inyectables o sueros Botox suavizan los músculos faciales, pero sin protección UV continua, el colágeno sigue degradándose.
+                    </p>
+
+                    <div class="mt-8 space-y-6">
+                        <!-- Benefit 1 -->
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 rounded-2xl bg-brand-500/20 border border-brand-400/30 flex items-center justify-center text-brand-300 shrink-0 text-xl">
+                                <i class="fa-solid fa-shield-cat"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-serif text-lg font-medium text-white">Escudo Filtro Solar Inteligente</h3>
+                                <p class="text-sm text-stone-400 mt-1">Refleja la radiación UV y bloquea la acumulación de hiperpigmentación (manchas).</p>
+                            </div>
+                        </div>
+
+                        <!-- Benefit 2 -->
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 rounded-2xl bg-brand-500/20 border border-brand-400/30 flex items-center justify-center text-brand-300 shrink-0 text-xl">
+                                <i class="fa-solid fa-vial"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-serif text-lg font-medium text-white">Inhibición Neuromuscular Suave</h3>
+                                <p class="text-sm text-stone-400 mt-1">Los neuropéptidos Argireline imitan la acción del Botox relajando la tensión facial recurrente.</p>
+                            </div>
+                        </div>
+
+                        <!-- Benefit 3 -->
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 rounded-2xl bg-brand-500/20 border border-brand-400/30 flex items-center justify-center text-brand-300 shrink-0 text-xl">
+                                <i class="fa-solid fa-droplet"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-serif text-lg font-medium text-white">Sostenibilidad de Hidratación Multicapa</h3>
+                                <p class="text-sm text-stone-400 mt-1">El ácido hialurónico de 3 pesos moleculares rellena las arrugas finas desde el interior.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Stats Counter Display -->
+                <div class="glass-dark p-8 rounded-3xl space-y-6 border border-white/10">
+                    <h3 class="font-serif text-2xl text-center text-brand-200">Resultados Probados Clínicamente</h3>
+                    
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold mb-1">
+                                <span>Hidratación Cutánea Inmediata</span>
+                                <span class="text-brand-300">98%</span>
+                            </div>
+                            <div class="w-full bg-stone-800 rounded-full h-2">
+                                <div class="bg-brand-400 h-2 rounded-full" style="width: 98%"></div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold mb-1">
+                                <span>Atenuación de Líneas de Expresión</span>
+                                <span class="text-brand-300">89%</span>
+                            </div>
+                            <div class="w-full bg-stone-800 rounded-full h-2">
+                                <div class="bg-brand-400 h-2 rounded-full" style="width: 89%"></div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold mb-1">
+                                <span>Protección Efectiva Contra Quemaduras Solares</span>
+                                <span class="text-brand-300">100%</span>
+                            </div>
+                            <div class="w-full bg-stone-800 rounded-full h-2">
+                                <div class="bg-brand-400 h-2 rounded-full" style="width: 100%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-white/5 border border-white/10 text-center">
+                        <p class="text-xs text-stone-300 italic">"La combinación de fotoprotección diaria con péptidos tensores es la alternativa no invasiva más efectiva frente al envejecimiento prematuro."</p>
+                        <p class="text-xs font-semibold text-brand-300 mt-2">— Dra. Valeria Mendoza, Dermatóloga Médica</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Skincare Quiz Widget Section -->
+    <section id="quiz" class="py-20 bg-nude/30">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <span class="text-xs font-semibold tracking-widest text-brand-600 uppercase">Diagnóstico Personalizado</span>
+            <h2 class="font-serif text-3xl sm:text-4xl font-normal text-emeraldDark mt-2">Encuentra Tu Rutina Ideal en 3 Pasos</h2>
+            <p class="text-stone-600 mt-2 mb-10">Responde brevemente sobre las necesidades de tu piel y te recomendaremos el combo perfecto.</p>
+
+            <div class="bg-white p-6 sm:p-10 rounded-3xl shadow-xl border border-stone-200 text-left">
+                <!-- Quiz Form Step 1 -->
+                <div id="quiz-step-1" class="space-y-4">
+                    <span class="text-xs text-brand-600 font-bold uppercase tracking-wider">Paso 1 de 2</span>
+                    <h3 class="font-serif text-xl font-medium text-emeraldDark">¿Cuál es tu tipo de piel principal?</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
+                        <button onclick="selectQuizOption('skin', 'seca')" class="quiz-opt-skin p-4 rounded-2xl border-2 border-stone-200 hover:border-brand-500 text-stone-700 hover:bg-brand-50 transition-all font-medium text-sm text-center">
+                            Seca o Sensible
+                        </button>
+                        <button onclick="selectQuizOption('skin', 'mixta')" class="quiz-opt-skin p-4 rounded-2xl border-2 border-stone-200 hover:border-brand-500 text-stone-700 hover:bg-brand-50 transition-all font-medium text-sm text-center">
+                            Mixta a Grasa
+                        </button>
+                        <button onclick="selectQuizOption('skin', 'madura')" class="quiz-opt-skin p-4 rounded-2xl border-2 border-stone-200 hover:border-brand-500 text-stone-700 hover:bg-brand-50 transition-all font-medium text-sm text-center">
+                            Madura / Falta de Firmeza
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Quiz Form Step 2 -->
+                <div id="quiz-step-2" class="hidden space-y-4 mt-6">
+                    <span class="text-xs text-brand-600 font-bold uppercase tracking-wider">Paso 2 de 2</span>
+                    <h3 class="font-serif text-xl font-medium text-emeraldDark">¿Cuál es tu mayor preocupación?</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
+                        <button onclick="selectQuizOption('concern', 'arrugas')" class="quiz-opt-concern p-4 rounded-2xl border-2 border-stone-200 hover:border-brand-500 text-stone-700 hover:bg-brand-50 transition-all font-medium text-sm text-center">
+                            Líneas y Arrugas
+                        </button>
+                        <button onclick="selectQuizOption('concern', 'manchas')" class="quiz-opt-concern p-4 rounded-2xl border-2 border-stone-200 hover:border-brand-500 text-stone-700 hover:bg-brand-50 transition-all font-medium text-sm text-center">
+                            Manchas y Tono Apagado
+                        </button>
+                        <button onclick="selectQuizOption('concern', 'flacidez')" class="quiz-opt-concern p-4 rounded-2xl border-2 border-stone-200 hover:border-brand-500 text-stone-700 hover:bg-brand-50 transition-all font-medium text-sm text-center">
+                            Pérdida de Elasticidad
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Quiz Result Banner -->
+                <div id="quiz-result" class="hidden text-center py-6 space-y-4">
+                    <div class="w-16 h-16 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-2xl mx-auto">
+                        <i class="fa-solid fa-check"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl text-emeraldDark font-semibold">¡Tu Rutina Personalizada está Lista!</h3>
+                    <p class="text-stone-600 text-sm max-w-md mx-auto" id="quiz-recommendation-text">Te recomendamos combinar la <strong>Crema Solar UV Defense FPS 50+</strong> en las mañanas y el <strong>Sérum Boto-Peptides</strong> en la noche.</p>
+                    <button onclick="openCartWithRoutine()" class="px-8 py-3.5 rounded-full bg-emeraldDark text-white font-medium text-xs tracking-widest uppercase hover:bg-emerald-900 transition-colors shadow-lg">
+                        Añadir Rutina Recomendada ($100.000)
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials & Social Proof -->
+    <section id="testimonios" class="py-20 bg-cream">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-xs font-semibold tracking-widest text-brand-600 uppercase">Opiniones Reales</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-normal text-emeraldDark mt-2">Lo que dicen nuestras clientas</h2>
+                <p class="text-stone-600 mt-2">Más de 15,000 mujeres confían en AuraSkin para mantener su rostro radiante.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-white p-6 rounded-3xl shadow-sm border border-stone-200 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center text-amber-500 text-xs mb-3">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-stone-600 text-sm italic font-light">"Tenía miedo de que el bloqueador solar me dejara la cara grasosa, pero este protector de AuraSkin se absorbe al instante. Y el sérum Botox suavizó mis arrugas de la frente en tres semanas."</p>
+                    </div>
+                    <div class="mt-6 flex items-center space-x-3 pt-4 border-t border-stone-100">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=120&q=80" alt="Camila R." class="w-10 h-10 rounded-full object-cover">
+                        <div>
+                            <p class="text-xs font-bold text-emeraldDark">Camila R.</p>
+                            <span class="text-[10px] text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full"><i class="fa-solid fa-shield"></i> Compra Verificada</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-white p-6 rounded-3xl shadow-sm border border-stone-200 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center text-amber-500 text-xs mb-3">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-stone-600 text-sm italic font-light">"Sustituí mis retoques de Botox por el suero Boto-Peptides y la crema nocturna. La piel se siente visiblemente firme y con muchísima luminosidad."</p>
+                    </div>
+                    <div class="mt-6 flex items-center space-x-3 pt-4 border-t border-stone-100">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=120&q=80" alt="Dra. Andrea M." class="w-10 h-10 rounded-full object-cover">
+                        <div>
+                            <p class="text-xs font-bold text-emeraldDark">Dra. Andrea M.</p>
+                            <span class="text-[10px] text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full"><i class="fa-solid fa-shield"></i> Compra Verificada</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="bg-white p-6 rounded-3xl shadow-sm border border-stone-200 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center text-amber-500 text-xs mb-3">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-stone-600 text-sm italic font-light">"Excelente empaque y calidad clínica. Llevo un mes usándolo y mis manchas de sol se han aclarado notoriamente. 100% recomendado."</p>
+                    </div>
+                    <div class="mt-6 flex items-center space-x-3 pt-4 border-t border-stone-100">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=120&q=80" alt="Lucía G." class="w-10 h-10 rounded-full object-cover">
+                        <div>
+                            <p class="text-xs font-bold text-emeraldDark">Lucía G.</p>
+                            <span class="text-[10px] text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full"><i class="fa-solid fa-shield"></i> Compra Verificada</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Banner -->
+    <section class="py-16 bg-brand-100 text-emeraldDark">
+        <div class="max-w-5xl mx-auto px-4 text-center space-y-6">
+            <h2 class="font-serif text-3xl sm:text-4xl font-normal">¿Lista para lucir tu mejor piel?</h2>
+            <p class="text-stone-700 max-w-xl mx-auto text-sm sm:text-base">Recibe un **15% de descuento adicional** en tu primera orden suscribiéndote a nuestro club exclusivo.</p>
+            <form onsubmit="event.preventDefault(); alert('¡Gracias por suscribirte!');" class="max-w-md mx-auto flex flex-col sm:flex-row gap-3">
+                <input type="email" placeholder="Tu correo electrónico..." required class="flex-1 px-5 py-3.5 rounded-full text-sm outline-none border border-stone-300 focus:border-emeraldDark">
+                <button type="submit" class="px-8 py-3.5 rounded-full bg-emeraldDark text-white text-xs font-semibold uppercase tracking-widest hover:bg-emerald-950 transition-colors">
+                    Unirme
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-emeraldDark text-stone-400 py-12 border-t border-stone-800 text-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="space-y-3">
+                <span class="font-serif text-2xl font-bold tracking-tight text-white">AURA<span class="text-brand-400">SKIN</span></span>
+                <p class="text-stone-400">Innovación científica dermatológica para la protección solar y el rejuvenecimiento facial.</p>
+            </div>
+            <div>
+                <h4 class="text-white font-semibold uppercase tracking-wider mb-3">Navegación</h4>
+                <ul class="space-y-2">
+                    <li><a href="#productos" class="hover:text-white transition-colors">Cremas Protectoras</a></li>
+                    <li><a href="#productos" class="hover:text-white transition-colors">Sérums Botox Peptide</a></li>
+                    <li><a href="#antes-despues" class="hover:text-white transition-colors">Casos Clínicos</a></li>
+                    <li><a href="#quiz" class="hover:text-white transition-colors">Test Diagnóstico</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-semibold uppercase tracking-wider mb-3">Atención al Cliente</h4>
+                <ul class="space-y-2">
+                    <li><a href="#" class="hover:text-white transition-colors">Preguntas Frecuentes</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Envíos y Devoluciones</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Garantía Clínica</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Contacto Medico</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-semibold uppercase tracking-wider mb-3">Contacto</h4>
+                <p class="mb-2"><i class="fa-solid fa-envelope mr-2"></i> soporte@auraskin.com</p>
+                <p class="mb-2"><i class="fa-solid fa-phone mr-2"></i> +57 (1) 800-AURA-SKIN</p>
+                <div class="flex space-x-3 mt-4 text-base text-white">
+                    <a href="#" class="hover:text-brand-300"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="hover:text-brand-300"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="hover:text-brand-300"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-6 border-t border-stone-800 text-center text-stone-500">
+            &copy; 2026 AuraSkin Cosmetics. Todos los derechos reservados.
+        </div>
+    </footer>
+
+    <!-- Shopping Cart Drawer Overlay -->
+    <div id="cart-overlay" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 opacity-0 pointer-events-none transition-opacity duration-300" onclick="toggleCart()"></div>
+
+    <!-- Sliding Shopping Cart Drawer -->
+    <div id="cart-drawer" class="fixed top-0 right-0 bottom-0 w-full max-w-md bg-white z-50 shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col justify-between">
+        <!-- Cart Header -->
+        <div class="p-5 border-b border-stone-200 flex justify-between items-center bg-cream">
+            <h3 class="font-serif text-xl font-semibold text-emeraldDark">Tu Carrito AuraSkin</h3>
+            <button onclick="toggleCart()" class="p-2 text-stone-500 hover:text-emeraldDark"><i class="fa-solid fa-xmark text-lg"></i></button>
+        </div>
+
+        <!-- Cart Items List -->
+        <div id="cart-items-container" class="p-5 flex-1 overflow-y-auto space-y-4">
+            <!-- Dynamic Cart Items Render Here via JS -->
+        </div>
+
+        <!-- Cart Footer / Checkout CTA -->
+        <div class="p-5 border-t border-stone-200 bg-cream space-y-3">
+            <div class="flex justify-between text-sm font-medium">
+                <span class="text-stone-600">Subtotal</span>
+                <span id="cart-subtotal" class="text-emeraldDark font-bold text-base">$100.000</span>
+            </div>
+            <p class="text-[11px] text-stone-500">Impuestos incluidos. Envío calculado en el pago.</p>
+            <button onclick="checkout()" class="w-full py-4 rounded-full bg-emeraldDark text-white font-medium text-xs tracking-widest uppercase hover:bg-emerald-950 transition-colors shadow-md">
+                Proceder al Pago <i class="fa-solid fa-lock ml-2"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Appointment Booking Modal (Botox Treatment) -->
+    <div id="booking-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 relative shadow-2xl">
+            <button onclick="closeBookingModal()" class="absolute top-4 right-4 text-stone-400 hover:text-stone-800"><i class="fa-solid fa-xmark text-xl"></i></button>
+            <span class="text-xs font-semibold tracking-widest text-brand-600 uppercase">Valoración Dermatológica</span>
+            <h3 class="font-serif text-2xl font-normal text-emeraldDark mt-1">Agendar Cita Botox / Boto-Peptides</h3>
+            <p class="text-xs text-stone-500 mt-2">Reserva una consulta con nuestro equipo médico especialista para aplicación presencial de toxina botulínica o evaluación facial personalizada.</p>
+
+            <form onsubmit="handleBookingSubmit(event)" class="mt-6 space-y-4 text-left">
+                <div>
+                    <label class="block text-xs font-semibold uppercase text-stone-600 mb-1">Nombre Completo</label>
+                    <input type="text" required class="w-full px-4 py-2.5 rounded-xl border border-stone-300 text-sm focus:border-emeraldDark outline-none">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold uppercase text-stone-600 mb-1">Teléfono / WhatsApp</label>
+                    <input type="tel" required class="w-full px-4 py-2.5 rounded-xl border border-stone-300 text-sm focus:border-emeraldDark outline-none">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold uppercase text-stone-600 mb-1">Fecha Preferida</label>
+                    <input type="date" required class="w-full px-4 py-2.5 rounded-xl border border-stone-300 text-sm focus:border-emeraldDark outline-none">
+                </div>
+                <button type="submit" class="w-full py-3.5 rounded-full bg-emeraldDark text-white text-xs font-semibold uppercase tracking-widest hover:bg-emerald-950 transition-colors mt-2">
+                    Confirmar Solicitud de Cita
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- JavaScript Functionality -->
+    <script>
+        // State Management for Cart
+        let cart = [
+            { id: 1, name: 'Crema Solar UV Defense FPS 50+', price: 38000, qty: 1, img: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=200&q=80' },
+            { id: 2, name: 'Sérum Boto-Peptides Concentrado', price: 62000, qty: 1, img: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=200&q=80' }
+        ];
+
+        let quizData = { skin: '', concern: '' };
+
+        // DOM Loaded Init
+        document.addEventListener('DOMContentLoaded', () => {
+            initBeforeAfterSlider();
+            renderCart();
+        });
+
+        // Toggle Mobile Navigation Menu
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Before & After Interactive Image Slider
+        function initBeforeAfterSlider() {
+            const container = document.getElementById('ba-container');
+            const beforeWrapper = document.getElementById('ba-before-wrapper');
+            const beforeImg = document.getElementById('ba-before-img');
+            const line = document.getElementById('ba-slider-line');
+
+            if (!container) return;
+
+            function updateWidth() {
+                if (container) {
+                    beforeImg.style.width = container.offsetWidth + 'px';
+                }
+            }
+            updateWidth();
+            window.addEventListener('resize', updateWidth);
+
+            let isDragging = false;
+
+            const move = (x) => {
+                const rect = container.getBoundingClientRect();
+                let pos = x - rect.left;
+                if (pos < 0) pos = 0;
+                if (pos > rect.width) pos = rect.width;
+
+                const percentage = (pos / rect.width) * 100;
+                beforeWrapper.style.width = percentage + '%';
+                line.style.left = percentage + '%';
+            };
+
+            container.addEventListener('mousedown', (e) => { isDragging = true; move(e.clientX); });
+            window.addEventListener('mouseup', () => isDragging = false);
+            window.addEventListener('mousemove', (e) => { if (isDragging) move(e.clientX); });
+
+            // Touch events for mobile compatibility
+            container.addEventListener('touchstart', (e) => { isDragging = true; move(e.touches[0].clientX); });
+            window.addEventListener('touchend', () => isDragging = false);
+            window.addEventListener('touchmove', (e) => { if (isDragging) move(e.touches[0].clientX); });
+        }
+
+        // Product Category Filter Switching
+        function switchTab(category) {
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-emeraldDark', 'text-white', 'shadow-sm');
+                btn.classList.add('text-stone-600');
+            });
+
+            const activeBtn = document.getElementById(`tab-${category}`);
+            if (activeBtn) {
+                activeBtn.classList.add('bg-emeraldDark', 'text-white', 'shadow-sm');
+                activeBtn.classList.remove('text-stone-600');
+            }
+
+            const cards = document.querySelectorAll('.product-card');
+            cards.forEach(card => {
+                if (category === 'all' || card.dataset.category === category) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Cart Drawer Controls
+        function toggleCart() {
+            const drawer = document.getElementById('cart-drawer');
+            const overlay = document.getElementById('cart-overlay');
+            
+            const isOpen = !drawer.classList.contains('translate-x-full');
+
+            if (isOpen) {
+                drawer.classList.add('translate-x-full');
+                overlay.classList.add('opacity-0', 'pointer-events-none');
+            } else {
+                drawer.classList.remove('translate-x-full');
+                overlay.classList.remove('opacity-0', 'pointer-events-none');
+            }
+        }
+
+        // Add Product to Cart
+        function addToCart(name, price, img) {
+            const existing = cart.find(item => item.name === name);
+            if (existing) {
+                existing.qty++;
+            } else {
+                cart.push({ id: Date.now(), name, price, qty: 1, img });
+            }
+            renderCart();
+            toggleCart();
+        }
+
+        // Render Cart Items
+        function renderCart() {
+            const container = document.getElementById('cart-items-container');
+            const badge = document.getElementById('cart-badge');
+            const subtotalEl = document.getElementById('cart-subtotal');
+
+            const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
+            badge.innerText = totalItems;
+
+            if (cart.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-12 text-stone-400">
+                        <i class="fa-solid fa-bag-shopping text-4xl mb-3 opacity-40"></i>
+                        <p class="text-sm">Tu carrito está vacío</p>
+                    </div>
+                `;
+                subtotalEl.innerText = "$0";
+                return;
+            }
+
+            let subtotal = 0;
+            container.innerHTML = cart.map(item => {
+                subtotal += item.price * item.qty;
+                return `
+                    <div class="flex items-center space-x-3 bg-stone-50 p-3 rounded-2xl border border-stone-200/60">
+                        <img src="${item.img}" alt="${item.name}" class="w-16 h-16 object-cover rounded-xl">
+                        <div class="flex-1">
+                            <h4 class="text-xs font-semibold text-emeraldDark">${item.name}</h4>
+                            <div class="text-xs font-bold text-stone-800 mt-1">$${(item.price * item.qty).toLocaleString('es-CO')}</div>
+                            <div class="flex items-center space-x-2 mt-2">
+                                <button onclick="updateQty(${item.id}, -1)" class="w-5 h-5 rounded-full bg-stone-200 flex items-center justify-center text-xs text-stone-700 hover:bg-stone-300">-</button>
+                                <span class="text-xs font-semibold">${item.qty}</span>
+                                <button onclick="updateQty(${item.id}, 1)" class="w-5 h-5 rounded-full bg-stone-200 flex items-center justify-center text-xs text-stone-700 hover:bg-stone-300">+</button>
+                            </div>
+                        </div>
+                        <button onclick="removeItem(${item.id})" class="text-stone-400 hover:text-red-500 p-1"><i class="fa-solid fa-trash text-xs"></i></button>
+                    </div>
+                `;
+            }).join('');
+
+            subtotalEl.innerText = `$${subtotal.toLocaleString('es-CO')}`;
+        }
+
+        // Update Quantity
+        function updateQty(id, delta) {
+            const item = cart.find(i => i.id === id);
+            if (item) {
+                item.qty += delta;
+                if (item.qty <= 0) {
+                    cart = cart.filter(i => i.id !== id);
+                }
+            }
+            renderCart();
+        }
+
+        // Remove Item
+        function removeItem(id) {
+            cart = cart.filter(i => i.id !== id);
+            renderCart();
+        }
+
+        // Checkout Placeholder Action
+        function checkout() {
+            if (cart.length === 0) return;
+            alert('¡Gracias por tu compra en AuraSkin! Redirigiendo a pasarela de pago segura...');
+        }
+
+        // Quiz Logic
+        function selectQuizOption(type, value) {
+            quizData[type] = value;
+            if (type === 'skin') {
+                document.getElementById('quiz-step-1').classList.add('hidden');
+                document.getElementById('quiz-step-2').classList.remove('hidden');
+            } else if (type === 'concern') {
+                document.getElementById('quiz-step-2').classList.add('hidden');
+                document.getElementById('quiz-result').classList.remove('hidden');
+            }
+        }
+
+        function openQuizModal() {
+            document.getElementById('quiz').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function openCartWithRoutine() {
+            addToCart('Rutina Personalizada AuraSkin', 100000, 'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=200&q=80');
+        }
+
+        // Booking Modal Controls
+        function openBookingModal() {
+            document.getElementById('booking-modal').classList.remove('hidden');
+        }
+
+        function closeBookingModal() {
+            document.getElementById('booking-modal').classList.add('hidden');
+        }
+
+        function handleBookingSubmit(e) {
+            e.preventDefault();
+            alert('¡Cita solicitada con éxito! Un especialista en dermatología te contactará por WhatsApp para confirmar.');
+            closeBookingModal();
+        }
+    </script>
 </body>
 </html>
