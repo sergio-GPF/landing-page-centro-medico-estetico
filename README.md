@@ -7,12 +7,13 @@
 - Enviar los nuevos archivos o archivos modificados al area de preparacion
 ```
 git add index.html
-git add
+git add .
 ```
-area de 
+- area de preparacion es donde se preapran los
+cambios 
 ## Paso 3
 - Registrar una descripcion del cambio realizado 
 ```
 git commit -m "proyecto base"
 ```
-## Paso 
+### ejemplo
