@@ -14,6 +14,16 @@ cambios
 ## Paso 3
 - Registrar una descripcion del cambio realizado 
 ```
-git commit -m "proyecto base"
+git commit -m "asignamos un comentario sobre la actualziacion del nuevo reporsitorio"
+```
+
+# GitHab
+```
+- git remote add origin https://github.com/sergio-GPF/landing-page-centro-medico-estetico.git
+```
+
+- Enviar los cambios al repositorio renoto
+```
+git push origin master
 ```
 ### ejemplo
