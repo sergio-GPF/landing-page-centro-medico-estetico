@@ -103,6 +103,7 @@
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex space-x-8 text-sm font-medium uppercase tracking-wider text-stone-700">
                     <a href="#productos" class="hover:text-brand-600 transition-colors py-1">Productos</a>
+                    <a href="#galeria" class="hover:text-brand-600 transition-colors py-1">Galería</a>
                     <a href="#beneficios" class="hover:text-brand-600 transition-colors py-1">Ciencia & Botox</a>
                     <a href="#antes-despues" class="hover:text-brand-600 transition-colors py-1">Resultados</a>
                     <a href="#quiz" class="hover:text-brand-600 transition-colors py-1">Diagnóstico Skin</a>
@@ -130,6 +131,7 @@
         <!-- Mobile Menu Dropdown -->
         <div id="mobile-menu" class="hidden md:hidden bg-cream border-b border-stone-200 px-4 pt-2 pb-6 space-y-3">
             <a href="#productos" onclick="toggleMobileMenu()" class="block py-2 text-sm font-medium uppercase tracking-wider text-stone-700 hover:text-brand-600">Productos</a>
+            <a href="#galeria" onclick="toggleMobileMenu()" class="block py-2 text-sm font-medium uppercase tracking-wider text-stone-700 hover:text-brand-600">Galería</a>
             <a href="#beneficios" onclick="toggleMobileMenu()" class="block py-2 text-sm font-medium uppercase tracking-wider text-stone-700 hover:text-brand-600">Ciencia & Botox</a>
             <a href="#antes-despues" onclick="toggleMobileMenu()" class="block py-2 text-sm font-medium uppercase tracking-wider text-stone-700 hover:text-brand-600">Resultados</a>
             <a href="#quiz" onclick="toggleMobileMenu()" class="block py-2 text-sm font-medium uppercase tracking-wider text-stone-700 hover:text-brand-600">Diagnóstico Skin</a>
@@ -447,6 +449,169 @@
             </div>
         </div>
     </section>
+
+    <!-- Luxury Interactive Image Gallery Section -->
+    <section id="galeria" class="py-20 bg-nude/20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-10">
+                <span class="text-xs font-semibold tracking-widest text-brand-600 uppercase"><i class="fa-solid fa-camera mr-1"></i> Experiencia Visual AuraSkin</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-normal text-emeraldDark mt-2">Galería de Ciencia, Texturas y Resultados</h2>
+                <p class="text-stone-600 mt-2 text-sm sm:text-base">Explora de cerca nuestras fórmulas avanzadas, la textura sedosa de los fotoprotectores y la precisión en la aplicación de péptidos estilo Botox.</p>
+            </div>
+
+            <!-- Gallery Filter Buttons -->
+            <div class="flex flex-wrap justify-center gap-2 sm:gap-3 mb-10">
+                <button onclick="filterGallery('todos')" id="gal-filter-todos" class="gal-btn active-gal px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all bg-emeraldDark text-white shadow-sm">
+                    Todos
+                </button>
+                <button onclick="filterGallery('botox')" id="gal-filter-botox" class="gal-btn px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-wider text-stone-600 hover:text-emeraldDark bg-white/70 border border-stone-200 transition-all">
+                    Resultados Botox
+                </button>
+                <button onclick="filterGallery('texturas')" id="gal-filter-texturas" class="gal-btn px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-wider text-stone-600 hover:text-emeraldDark bg-white/70 border border-stone-200 transition-all">
+                    Texturas & Cremas
+                </button>
+                <button onclick="filterGallery('instalaciones')" id="gal-filter-instalaciones" class="gal-btn px-5 py-2 rounded-full text-xs font-semibold uppercase tracking-wider text-stone-600 hover:text-emeraldDark bg-white/70 border border-stone-200 transition-all">
+                    Clínica & Cuidados
+                </button>
+            </div>
+
+            <!-- Gallery Masonry/Grid Items -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="gallery-grid">
+                
+                <!-- Gallery Item 1 -->
+                <div class="gallery-item group relative rounded-3xl overflow-hidden bg-stone-100 shadow-md hover:shadow-2xl transition-all duration-500 cursor-pointer h-80" data-category="texturas" onclick="openLightbox(0)">
+                    <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=800&q=80" alt="Textura de Crema Protectora UV FPS 50+" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-emeraldDark/80 via-emeraldDark/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-brand-300">Texturas & Cremas</span>
+                        <h4 class="font-serif text-lg text-white font-medium">Textura Sedosa SPF 50+ Invisible</h4>
+                        <p class="text-xs text-stone-300 mt-1">Acabado velvet sin residuo blanco ni oleosidad.</p>
+                        <div class="mt-3 w-9 h-9 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white text-sm">
+                            <i class="fa-solid fa-expand"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 2 -->
+                <div class="gallery-item group relative rounded-3xl overflow-hidden bg-stone-100 shadow-md hover:shadow-2xl transition-all duration-500 cursor-pointer h-80" data-category="botox" onclick="openLightbox(1)">
+                    <img src="https://images.unsplash.com/photo-1512290900673-7002030034a7?auto=format&fit=crop&w=800&q=80" alt="Efecto Alisador de Arrugas Boto-Peptides" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-emeraldDark/80 via-emeraldDark/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-brand-300">Resultados Botox</span>
+                        <h4 class="font-serif text-lg text-white font-medium">Relajación de Expresión Facial</h4>
+                        <p class="text-xs text-stone-300 mt-1">Efecto lifting en patas de gallo tras 28 días.</p>
+                        <div class="mt-3 w-9 h-9 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white text-sm">
+                            <i class="fa-solid fa-expand"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 3 -->
+                <div class="gallery-item group relative rounded-3xl overflow-hidden bg-stone-100 shadow-md hover:shadow-2xl transition-all duration-500 cursor-pointer h-80" data-category="instalaciones" onclick="openLightbox(2)">
+                    <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=800&q=80" alt="Aplicación de Tratamiento Clínico" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-emeraldDark/80 via-emeraldDark/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-brand-300">Clínica & Cuidados</span>
+                        <h4 class="font-serif text-lg text-white font-medium">Cabina de Tratamiento Dermocosmético</h4>
+                        <p class="text-xs text-stone-300 mt-1">Acompañamiento profesional y protocolo de aplicación.</p>
+                        <div class="mt-3 w-9 h-9 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white text-sm">
+                            <i class="fa-solid fa-expand"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 4 -->
+                <div class="gallery-item group relative rounded-3xl overflow-hidden bg-stone-100 shadow-md hover:shadow-2xl transition-all duration-500 cursor-pointer h-80" data-category="texturas" onclick="openLightbox(3)">
+                    <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=800&q=80" alt="Gotas del Sérum Concentrado Boto-Peptides" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-emeraldDark/80 via-emeraldDark/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-brand-300">Texturas & Cremas</span>
+                        <h4 class="font-serif text-lg text-white font-medium">Sérum Fluido de Absorción Rápida</h4>
+                        <p class="text-xs text-stone-300 mt-1">Con 15% de Argireline de grado farmacéutico.</p>
+                        <div class="mt-3 w-9 h-9 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white text-sm">
+                            <i class="fa-solid fa-expand"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 5 -->
+                <div class="gallery-item group relative rounded-3xl overflow-hidden bg-stone-100 shadow-md hover:shadow-2xl transition-all duration-500 cursor-pointer h-80" data-category="botox" onclick="openLightbox(4)">
+                    <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=800&q=80" alt="Recuperación de Firmeza Facial" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-emeraldDark/80 via-emeraldDark/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-brand-300">Resultados Botox</span>
+                        <h4 class="font-serif text-lg text-white font-medium">Contorno y Óvalo Definido</h4>
+                        <p class="text-xs text-stone-300 mt-1">Recuperación de elasticidad y tensión natural.</p>
+                        <div class="mt-3 w-9 h-9 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white text-sm">
+                            <i class="fa-solid fa-expand"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 6 -->
+                <div class="gallery-item group relative rounded-3xl overflow-hidden bg-stone-100 shadow-md hover:shadow-2xl transition-all duration-500 cursor-pointer h-80" data-category="instalaciones" onclick="openLightbox(5)">
+                    <img src="https://images.unsplash.com/photo-1608248597261-83325705438f?auto=format&fit=crop&w=800&q=80" alt="Línea de Empaque de Lujo AuraSkin" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-emeraldDark/80 via-emeraldDark/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-brand-300">Clínica & Cuidados</span>
+                        <h4 class="font-serif text-lg text-white font-medium">Envases Airless Protección UV</h4>
+                        <p class="text-xs text-stone-300 mt-1">Conserva la potencia de los ingredientes sin contaminación.</p>
+                        <div class="mt-3 w-9 h-9 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white text-sm">
+                            <i class="fa-solid fa-expand"></i>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Social Community Instagram Wall Banner -->
+            <div class="mt-16 bg-white rounded-3xl p-6 sm:p-8 border border-stone-200/80 shadow-md flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="flex items-center space-x-4">
+                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-amber-500 via-rose-500 to-purple-600 flex items-center justify-center text-white text-2xl shrink-0 shadow-lg">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                    <div>
+                        <span class="text-[11px] font-bold tracking-widest text-brand-600 uppercase">Comunidad AuraSkin</span>
+                        <h3 class="font-serif text-xl font-medium text-emeraldDark">Comparte tu cambio con #EfectoBotoxSkin</h3>
+                        <p class="text-xs text-stone-500 mt-0.5">Etiquétanos en Instagram y participa por un kit de protección anual.</p>
+                    </div>
+                </div>
+                <button onclick="loadMoreGallery()" class="w-full md:w-auto px-6 py-3.5 rounded-full border border-emeraldDark text-emeraldDark text-xs font-semibold uppercase tracking-widest hover:bg-emeraldDark hover:text-white transition-all shrink-0">
+                    Cargar Más Fotografías <i class="fa-solid fa-rotate-right ml-1"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Lightbox Modal -->
+    <div id="gallery-lightbox" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden flex flex-col justify-between p-4 sm:p-8 transition-opacity duration-300">
+        <!-- Lightbox Header Controls -->
+        <div class="flex justify-between items-center text-white z-10">
+            <span id="lightbox-counter" class="text-xs tracking-widest font-semibold uppercase text-stone-400">Imagen 1 de 6</span>
+            <button onclick="closeLightbox()" class="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+        </div>
+
+        <!-- Lightbox Main Stage -->
+        <div class="relative flex-1 flex items-center justify-center my-4 overflow-hidden">
+            <!-- Nav Prev -->
+            <button onclick="prevLightbox()" class="absolute left-2 sm:left-6 z-20 w-12 h-12 rounded-full bg-white/10 hover:bg-white/30 backdrop-blur-md text-white flex items-center justify-center transition-all shadow-lg">
+                <i class="fa-solid fa-chevron-left text-lg"></i>
+            </button>
+
+            <!-- Image View -->
+            <div class="max-w-4xl max-h-[75vh] relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+                <img id="lightbox-img" src="" alt="" class="max-h-[75vh] w-auto object-contain mx-auto">
+            </div>
+
+            <!-- Nav Next -->
+            <button onclick="nextLightbox()" class="absolute right-2 sm:right-6 z-20 w-12 h-12 rounded-full bg-white/10 hover:bg-white/30 backdrop-blur-md text-white flex items-center justify-center transition-all shadow-lg">
+                <i class="fa-solid fa-chevron-right text-lg"></i>
+            </button>
+        </div>
+
+        <!-- Lightbox Caption Footer -->
+        <div class="text-center max-w-xl mx-auto z-10">
+            <span id="lightbox-category" class="text-[10px] font-bold uppercase tracking-widest text-brand-300">Categoría</span>
+            <h3 id="lightbox-title" class="font-serif text-xl text-white font-medium mt-1">Título de la imagen</h3>
+            <p id="lightbox-desc" class="text-xs text-stone-400 mt-1">Descripción detallada del tratamiento o la textura mostrada.</p>
+        </div>
+    </div>
 
     <!-- Benefits & Science Section -->
     <section id="beneficios" class="py-20 bg-emeraldDark text-cream relative overflow-hidden">
@@ -799,11 +964,112 @@
 
         let quizData = { skin: '', concern: '' };
 
+        const galleryItemsData = [
+            {
+                src: "https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=1200&q=80",
+                title: "Textura Sedosa SPF 50+ Invisible",
+                category: "Texturas & Cremas",
+                desc: "Fórmula de absorción ultrarrápida enriquecida con Óxido de Zinc microscópico que no deja velo blanco ni sensación grasosa."
+            },
+            {
+                src: "https://images.unsplash.com/photo-1512290900673-7002030034a7?auto=format&fit=crop&w=1200&q=80",
+                title: "Relajación de Expresión Facial",
+                category: "Resultados Botox",
+                desc: "Disminución notable del tono muscular superficial en el entrecejo y patas de gallo mediante péptidos Boto-Like."
+            },
+            {
+                src: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=1200&q=80",
+                title: "Cabina de Tratamiento Dermocosmético",
+                category: "Clínica & Cuidados",
+                desc: "Nuestros protocolos presenciales combinan luz LED terapéutica con aplicación de crema protectora y toxina botulínica."
+            },
+            {
+                src: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=1200&q=80",
+                title: "Sérum Fluido de Absorción Rápida",
+                category: "Texturas & Cremas",
+                desc: "Sérum acuoso formulado con Ácido Hialurónico triple peso molecular para penetración profunda en la dermis."
+            },
+            {
+                src: "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=1200&q=80",
+                title: "Contorno y Óvalo Definido",
+                category: "Resultados Botox",
+                desc: "Restauración de la firmeza y densidad dérmica tras 4 semanas de uso continuo en la rutina mañana y noche."
+            },
+            {
+                src: "https://images.unsplash.com/photo-1608248597261-83325705438f?auto=format&fit=crop&w=1200&q=80",
+                title: "Envases Airless Protección UV",
+                category: "Clínica & Cuidados",
+                desc: "Tecnología de empaque al vacío que evita la oxidación del retinol y los antioxidantes por exposición al aire o luz solar."
+            }
+        ];
+
+        let currentLightboxIndex = 0;
+
         // DOM Loaded Init
         document.addEventListener('DOMContentLoaded', () => {
             initBeforeAfterSlider();
             renderCart();
         });
+
+        function filterGallery(category) {
+            const buttons = document.querySelectorAll('.gal-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-emeraldDark', 'text-white', 'shadow-sm');
+                btn.classList.add('text-stone-600', 'bg-white/70', 'border', 'border-stone-200');
+            });
+
+            const activeBtn = document.getElementById(`gal-filter-${category}`);
+            if (activeBtn) {
+                activeBtn.classList.add('bg-emeraldDark', 'text-white', 'shadow-sm');
+                activeBtn.classList.remove('text-stone-600', 'bg-white/70', 'border-stone-200');
+            }
+
+            const items = document.querySelectorAll('.gallery-item');
+            items.forEach(item => {
+                if (category === 'todos' || item.dataset.category === category) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        function openLightbox(index) {
+            currentLightboxIndex = index;
+            updateLightboxContent();
+            const lightbox = document.getElementById('gallery-lightbox');
+            lightbox.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('gallery-lightbox');
+            lightbox.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        function updateLightboxContent() {
+            const item = galleryItemsData[currentLightboxIndex];
+            document.getElementById('lightbox-img').src = item.src;
+            document.getElementById('lightbox-title').innerText = item.title;
+            document.getElementById('lightbox-category').innerText = item.category;
+            document.getElementById('lightbox-desc').innerText = item.desc;
+            document.getElementById('lightbox-counter').innerText = `Imagen ${currentLightboxIndex + 1} de ${galleryItemsData.length}`;
+        }
+
+        function nextLightbox() {
+            currentLightboxIndex = (currentLightboxIndex + 1) % galleryItemsData.length;
+            updateLightboxContent();
+        }
+
+        function prevLightbox() {
+            currentLightboxIndex = (currentLightboxIndex - 1 + galleryItemsData.length) % galleryItemsData.length;
+            updateLightboxContent();
+        }
+
+        function loadMoreGallery() {
+            alert('¡Nuevas fotografías cargadas desde el feed de Instagram #EfectoBotoxSkin!');
+        }
 
         // Toggle Mobile Navigation Menu
         function toggleMobileMenu() {
